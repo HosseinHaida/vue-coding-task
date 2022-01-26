@@ -1,47 +1,40 @@
 <template>
-    <p>Data:</p>
-    {{ JSON.stringify(timeSlots, null, 4) }}
+  <q-layout view="lHh Lpr lFf">
+    <q-header
+      class="bg-white"
+    >
+      <q-toolbar>
+        <div class="row justify-center q-py-sm full-width">
+          <q-img
+            style="max-width: 200px"
+            src="./assets/dynamaze_logo.png"
+          />
+        </div>
+      </q-toolbar>
+      <div />
+    </q-header>
+
+    <q-page-container>
+      <Main />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
+import { ref } from 'vue';
+import Main from './components/Main.vue';
+
 export default {
-    name: 'App',
-    components: {
-    },
-    data: function() {
-        return {
-            timeSlots: [
-                {
-                    id: "1",
-                    ticketAmount: 10,
-                    begin: "10:00",
-                    price: {
-                        amount: 10,
-                        currency: "EUR",
-                    },
-                },
-                {
-                    id: "2",
-                    ticketAmount: 5,
-                    begin: "11:00",
-                    price: {
-                        amount: 10,
-                        currency: "EUR",
-                    },
-                },
-            ],
-        };
-    },
+  name: 'LayoutDefault',
+
+  components: {
+    Main,
+  },
+
+  setup () {
+    return {
+      leftDrawerOpen: ref(false),
+    };
+  },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
